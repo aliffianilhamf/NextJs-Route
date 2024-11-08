@@ -84,7 +84,7 @@ Misalnya, kita memiliki struktur folder berikut di dalam folder `pages`:
 ```
 pages/
 └── blog/
-    └── [...slug].js
+    └── [...slug].jsx
 ```
 
 Dengan struktur ini, Next.js akan menangkap semua URL yang dimulai dengan `/blog/` diikuti dengan segmen apa pun. Misalnya:
@@ -93,11 +93,11 @@ Dengan struktur ini, Next.js akan menangkap semua URL yang dimulai dengan `/blog
 - `/blog/one/two`
 - `/blog/one/two/three`
 
-Semua URL tersebut akan diarahkan ke file `[...slug].js`.
+Semua URL tersebut akan diarahkan ke file `[...slug].jsx`.
 
 #### Contoh Implementasi
 
-Di dalam file `[...slug].js`, kita bisa mengakses parameter `slug` sebagai array, di mana setiap elemen array adalah segmen dari URL tersebut. Berikut adalah contoh kode untuk menangkap parameter `slug`:
+Di dalam file `[...slug].jsx`, kita bisa mengakses parameter `slug` sebagai array, di mana setiap elemen array adalah segmen dari URL tersebut. Berikut adalah contoh kode untuk menangkap parameter `slug`:
 
 ```javascript
 import { useRouter } from 'next/router';
@@ -130,7 +130,7 @@ Misalnya, jika kita ingin menangani URL di bawah `/docs/` baik dengan atau tanpa
 ```
 pages/
 └── docs/
-    └── [[...slug]].js
+    └── [[...slug]].jsx
 ```
 
 Dalam hal ini, URL yang ditangani bisa berupa:
@@ -139,11 +139,11 @@ Dalam hal ini, URL yang ditangani bisa berupa:
 - `/docs/intro`
 - `/docs/intro/getting-started`
 
-Semua URL tersebut akan diarahkan ke file `[[...slug]].js`.
+Semua URL tersebut akan diarahkan ke file `[[...slug]].jsx`.
 
 #### Contoh Implementasi
 
-Di dalam file `[[...slug]].js`, parameter `slug` bisa berupa `undefined` (jika tidak ada segmen tambahan) atau array (jika ada segmen tambahan). Contoh implementasinya:
+Di dalam file `[[...slug]].jsx`, parameter `slug` bisa berupa `undefined` (jika tidak ada segmen tambahan) atau array (jika ada segmen tambahan). Contoh implementasinya:
 
 ```javascript
 import { useRouter } from 'next/router';
