@@ -1,5 +1,9 @@
 # Next Js - Route (Adelfia)
 
+**Next.js** adalah sebuah *framework* yang andal, dibangun di atas **React** yang menyederhanakan proses *server-side rendering*, *static site generation*, dan *routing*.
+
+Pada bagian ini, kita akan mempelajari konsep dasar *routing* di Next.js, mengeksplorasi penggunaan *dynamic* dan *nested routes*, serta memahami cara mengelola *custom routes* dan API *routes*.
+
 ## Apa itu Routing pada Next Js (Adelfia)
 
 ## App router & Page route (Alip)
