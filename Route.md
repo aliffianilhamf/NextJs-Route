@@ -4,6 +4,15 @@
 
 Pada bagian ini, kita akan mempelajari konsep dasar *routing* di Next.js, mengeksplorasi penggunaan *dynamic* dan *nested routes*, serta memahami cara mengelola *custom routes* dan API *routes*.
 
+**Daftar Isi**
+- [Apa itu Routing pada Next Js](#apa-itu-routing-pada-next-js)
+- [App Router & Page Router](#app-router--page-router)
+- [Tipe-Tipe Route pada Next Js](#tipe-tipe-route-pada-next-js)
+- [Route Lanjutan](#route-lanjutan)
+- [Fitur pada Route di Next Js](#fitur-pada-route-di-next-js)
+- [Penggunaan Route Next Js](#penggunaan-route-next-js)
+- [Kesimpulan](#kesimpulan)
+
 ## Apa itu Routing pada Next Js (Adelfia)
 
 ## App router & Page route (Alip)
