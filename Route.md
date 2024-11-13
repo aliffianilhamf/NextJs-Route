@@ -251,7 +251,80 @@ Dengan `useRouter`, kita dapat mengembangkan komponen dinamis yang merespons per
 
 ## Fitur pada route di Next Js (Surya)
 
-## Penggunaan Route Next Js (Surya)
+beberapa fitur ini, bisa digunakan di routing Next.js lo! Berikut fitur-fitur ayng bisa kamu gunakan untuk meningkatkan kemampuan ngoding dalam membuat routing di Next.Js:
+
+- ### **File-Based Routing** 
+
+Next.js menggunakan file-based routing sistem dimana file dengan nama  `page` pada direktori akan digunakan sebagai route url. Ini membantumu untuk mengatur route tanpa erlu konfigurasi yang sulit.
+
+**Contoh penggunaan File-Based Routing**
+```
+└── app
+    ├── profile
+    │   └── page.jsx     // Halaman dari profile, akses di /profile
+    ├── globals.css
+    ├── layout.jsx
+    ├── login
+    │   └── page.jsx     // Halaman dari profile, akses di /profile
+    ├── page.jsx
+```
+File page.jsx yang ada folder profile dan login secara otomatis menjadi rute berdasarkan nama dari direktori dan yang akan ditampilkan di browser saat kamu berusaha mengakses nya.
+- `app/profile/page.jsx` -> `http://localhost::3000/profile`
+- `app/login/page.jsx` -> `http://localhost::3000/login`
+
+- ### **Dynamic Routing** 
+
+Menggunakan dynamic routing memungkinkan kamu menambahkan parameter yang dapat dikustomisasi pada URL, sehingga menciptakan segmen halaman yang dinamis.
+
+**Contoh penggunaan Dynamic Routing**
+```
+└── app
+    ├── blog
+    │   └── [id]
+    │       └── page.jsx
+```
+Folder `[id]` akan menjadi folder dinamis yang akan menangkap parameter dari URL. Untuk bisa menangkap id dari parameter, pada page.jsx kamu bisa menulis berikut:
+
+```javascript
+import { useParams } from 'next/navigation';
+
+const ProductPage = () => {
+  // Mengambil parameter 'id' dari URL
+  const { id } = useParams();
+
+  return (
+    <div>
+      <h1>blog ID: {id}</h1>
+      <p>Ini adalah halaman blog dengan ID {id}</p>
+    </div>
+  );
+};
+
+export default ProductPage;
+```
+Pada source code diatas, kita menggunakan `useParams()` untuk menangkap parameter `id` yang ada di URL. Jika pengguna membuka URL `http://localhost:3000/blog/123`. maka akan merender `123` pada website.
+
+- ### **Nested route**
+
+Untuk membuat route bersarang, kamu bisa membuat direktori didalam direkotri lainnya. Contoh: pada route `/dashboard/settings` dengan membuat direktori didalam direktori `dashboard`. Struktur nya:
+```
+└── app
+    ├── dashboard             // segmen
+    │   └── settings          // segmen daun
+    │       └── page.jsx
+```
+route `/dashboard/settings` terdiri dari 3 segmen:
+- `/` (Root segment)
+- `dashboard` (segmen)
+- `settings` (segmen daun)
+
+## **Penggunaan Route Next Js**
+- **Situs Statis**: Next.js routing sangat cocok untuk membangun situs statis di mana setiap halaman memiliki file tersendiri. Pendekatan ini membuat pengembangan dan deployment menjadi lebih sederhana.
+- **Blog dan Situs Berbasis Konten**: Dynamic routing dan nested routes memudahkan pembuatan blog dan situs berbasis konten dengan struktur navigasi yang kompleks, seperti kategori dan tag.
+- **Platform E-commerce**: Platform e-commerce bisa memanfaatkan dynamic routes untuk halaman produk, nested routes untuk kategori produk, serta API routes untuk mengelola logika backend seperti autentikasi pengguna dan pemrosesan pembayaran.
+- **Dashboard Pengguna**: Aplikasi dengan dashboard pengguna dapat memanfaatkan nested routing untuk menciptakan navigasi yang intuitif dan terorganisir, seperti pengaturan, profil, dan aktivitas.
+- **Aplikasi Full-Stack**: Dengan Next.js routing dan API routes, pengembang bisa membangun aplikasi full-stack yang mencakup logika frontend dan backend dalam satu proyek, sehingga pengembangan dan deployment lebih mudah.
+- **Single Page Applications (SPAs)**: Dengan navigasi sisi klien dan kemampuan prefetching, Next.js cocok untuk membangun SPA yang membutuhkan perpindahan halaman yang cepat dan mulus.
 
 ## Kesimpulan (Adelfia)
 
