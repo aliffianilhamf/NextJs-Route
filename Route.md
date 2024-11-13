@@ -15,6 +15,10 @@ Pada bagian ini, kita akan mempelajari konsep dasar *routing* di Next.js, mengek
 
 ## Apa itu Routing pada Next Js (Adelfia)
 
+Next.js menawarkan cara yang sederhana dan intuitif untuk mengelola *routing* menggunakan sistem berbasis file. Setiap file yang diletakkan di dalam folder `pages` secara otomatis menjadi sebuah rute yang dapat diakses, sehingga kita tidak perlu lagi membuat konfigurasi *routing* yang rumit.
+
+Dengan fitur ini, Next.js menjadi pilihan yang sangat cocok bagi pemula atau developer yang ingin mengatur rute dengan mudah tanpa konfigurasi tambahan yang kompleks, sehingga dapat menigkatkan efisiensi.
+
 ## App router & Page route (Alip)
 
 Next.js menggunakan perutean file-system, yang artinya route dalam aplikasi yang kita ditentukan oleh cara kita sendiri dalam menyusun struktur file. Oleh karena itu, mengharuskan kita untuk membuat keputusan mengenai Route dalam  memulai suatu proyek menggunakan Next.js.
@@ -250,3 +254,7 @@ Dengan `useRouter`, kita dapat mengembangkan komponen dinamis yang merespons per
 ## Penggunaan Route Next Js (Surya)
 
 ## Kesimpulan (Adelfia)
+
+**Routing** berbasis *file-system* di Next.js sangat andal dan intuitif, memungkinkan pengguna untuk membuat *static, dynamic, nested,* dan API *route* dengan mudah. Next.js juga mendukung fitur-fitur lanjutan, seperti *catch-all routes* yang mencakup semua rute dan komponen *Link* bawaan untuk navigasi, Next.js menyederhanakan proses pembuatan aplikasi web yang skalabel (*scalable*) dan berkinerja tinggi (*high-performance*).
+
+Fitur-fitur ini membuat Next.js sangat efisien dan mudah digunakan untuk membangun aplikasi web. Dengan sistem *routing* yang sederhana dan dukungan untuk fitur-fitur lanjutan, pengguna dapat fokus pada pembuatan fungsionalitas aplikasi tanpa harus menangani pengaturan *routing* yang rumit.
