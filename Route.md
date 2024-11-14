@@ -318,6 +318,18 @@ route `/dashboard/settings` terdiri dari 3 segmen:
 - `dashboard` (segmen)
 - `settings` (segmen daun)
 
+- ### **Client-Side navigation**
+
+komponen `link` yang disediakan oleh Next.Js, memungkinkan navigasi sisi klien yang cepat dengan kemampuan prefetching, meningkatkan kinerja dan pengalaman pengguna aplikasi Anda.
+
+- ### **Custom routes**
+
+Anda dapat menentukan rute, alias, dan pengalihan khusus di file `next.config.js`, sehingga Anda dapat membuat URL yang lebih fleksibel dan ramah SEO.
+
+- ### **Built-In Optimization**
+
+Next.js secara otomatis mengoptimalkan perutean dan navigasi, memastikan pemuatan halaman yang cepat dan penggunaan sumber daya yang efisien.
+
 ## **Penggunaan Route Next Js**
 - **Situs Statis**: Next.js routing sangat cocok untuk membangun situs statis di mana setiap halaman memiliki file tersendiri. Pendekatan ini membuat pengembangan dan deployment menjadi lebih sederhana.
 - **Blog dan Situs Berbasis Konten**: Dynamic routing dan nested routes memudahkan pembuatan blog dan situs berbasis konten dengan struktur navigasi yang kompleks, seperti kategori dan tag.
