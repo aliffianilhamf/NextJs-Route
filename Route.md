@@ -85,16 +85,16 @@ Next.js versi 13 memperkenalkan app router yang bekerja dengan direktori `app/` 
 ## Tipe - tipe route pada Next Js (Gayuh)
 
 ## Route Lanjutan (Dzawil)
-## Advanced Routing
+# Routing Lanjutan
 Dalam pengembangan web dengan Next.js, konsep *catch all routes* dan *optional catch all routes* adalah cara untuk menangani rute dinamis (dynamic routing) dengan lebih fleksibel, terutama ketika kita tidak tahu secara pasti berapa banyak segmen URL yang akan ada. Fitur ini sangat berguna dalam kasus aplikasi yang membutuhkan fleksibilitas dalam menangkap berbagai pola URL tanpa harus mendefinisikan masing-masing satu per satu.
 
 Mari kita bahas satu per satu tentang *catch all routes* dan *optional catch all routes* beserta contohnya.
 
-### 1. Catch All Routes
+## 1. Catch All Routes
 
 *Catch all routes* menangkap semua segmen URL setelah rute tertentu, terlepas dari jumlah segmen tersebut. Untuk membuat *catch all route*, gunakan tanda `[...slug]` pada nama file di dalam folder `pages`. 
 
-#### Contoh Struktur Folder
+### Contoh Struktur Folder
 
 Misalnya, kita memiliki struktur folder berikut di dalam folder `pages`:
 
@@ -112,7 +112,7 @@ Dengan struktur ini, Next.js akan menangkap semua URL yang dimulai dengan `/blog
 
 Semua URL tersebut akan diarahkan ke file `[...slug].jsx`.
 
-#### Contoh Implementasi
+### Contoh Implementasi
 
 Di dalam file `[...slug].jsx`, kita bisa mengakses parameter `slug` sebagai array, di mana setiap elemen array adalah segmen dari URL tersebut. Berikut adalah contoh kode untuk menangkap parameter `slug`:
 
@@ -136,11 +136,11 @@ export default BlogPost;
 
 Jika URL yang diakses adalah `/blog/one/two`, maka output `slug` akan berupa `Slug: one/two`. Tetapi jika URL yang diakses adalah `/blog`, maka output `slug` berupa `Slug: No Slug`.
 
-### 2. Optional Catch All Routes
+## 2. Optional Catch All Routes
 
 *Optional catch all routes* mirip dengan *catch all routes*, tetapi lebih fleksibel karena parameter ini bersifat opsional. Kita dapat membuatnya dengan menambahkan tanda `[[...slug?]]`, yang berarti bahwa rute tersebut dapat dipanggil dengan atau tanpa parameter tambahan.
 
-#### Contoh Struktur Folder
+### Contoh Struktur Folder
 
 Misalnya, jika kita ingin menangani URL di bawah `/docs/` baik dengan atau tanpa segmen tambahan, kita bisa membuat file seperti ini:
 
@@ -158,7 +158,7 @@ Dalam hal ini, URL yang ditangani bisa berupa:
 
 Semua URL tersebut akan diarahkan ke file `[[...slug]].jsx`.
 
-#### Contoh Implementasi
+### Contoh Implementasi
 
 Di dalam file `[[...slug]].jsx`, parameter `slug` bisa berupa `undefined` (jika tidak ada segmen tambahan) atau array (jika ada segmen tambahan). Contoh implementasinya:
 
@@ -182,14 +182,14 @@ export default Docs;
 
 Jika URL yang diakses adalah `/docs` (Tidak ada segment tambahan), maka `slug` akan tampil `Home Page`. Jika URL yang diakses adalah `/docs/intro/getting-started`, maka `slug` akan berupa `["intro", "getting-started"]`.
 
-### Kapan Menggunakan Catch All Routes dan Optional Catch All Routes?
+## Kapan Menggunakan Catch All Routes dan Optional Catch All Routes?
 
 - **Catch All Routes (`[...slug]`)** cocok ketika kita ingin menangkap semua segmen yang muncul setelah rute dasar, tetapi selalu mengharapkan adanya parameter tambahan.
 - **Optional Catch All Routes (`[[...slug]]`)** cocok ketika kita ingin menangani baik URL dengan maupun tanpa parameter tambahan.
 
 Dengan cara ini, Kita dapat membuat rute yang fleksibel dan dinamis tanpa harus menentukan setiap rute secara eksplisit di Next.js.
 
-### Navigasi Antar Halaman
+## Navigasi Antar Halaman
 
 Di Next.js, kita dapat melakukan navigasi antar halaman dengan menggunakan komponen `Link` dari modul `next/link`. Komponen ini memungkinkan navigasi sisi-klien (client-side) antara halaman-halaman di aplikasi Next.js. Penggunaan komponen `Link` memberikan pengalaman lebih lancar dan cepat bagi pengguna dibandingkan dengan metode navigasi tradisional yang memuat ulang seluruh halaman.
 
@@ -212,7 +212,7 @@ function HomePage() {
 
 Pada contoh di atas, pengguna akan diarahkan ke halaman `/about` tanpa memuat ulang seluruh halaman saat mengklik tautan.
 
-### Hook `useRouter`
+## Hook `useRouter`
 
 `useRouter` adalah hook yang disediakan oleh Next.js untuk mengakses objek router. Hook ini memungkinkan kita mendapatkan informasi tentang rute saat ini, parameter query, dan berbagai detail terkait rute lainnya. Dengan `useRouter`, kita dapat membuat logika yang bergantung pada lokasi halaman atau parameter yang disediakan dalam URL.
 
