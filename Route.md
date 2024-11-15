@@ -85,16 +85,16 @@ Next.js versi 13 memperkenalkan app router yang bekerja dengan direktori `app/` 
 ## Tipe - tipe route pada Next Js (Gayuh)
 
 ## Route Lanjutan (Dzawil)
-## Advanced Routing
+# Routing Lanjutan
 Dalam pengembangan web dengan Next.js, konsep *catch all routes* dan *optional catch all routes* adalah cara untuk menangani rute dinamis (dynamic routing) dengan lebih fleksibel, terutama ketika kita tidak tahu secara pasti berapa banyak segmen URL yang akan ada. Fitur ini sangat berguna dalam kasus aplikasi yang membutuhkan fleksibilitas dalam menangkap berbagai pola URL tanpa harus mendefinisikan masing-masing satu per satu.
 
 Mari kita bahas satu per satu tentang *catch all routes* dan *optional catch all routes* beserta contohnya.
 
-### 1. Catch All Routes
+## 1. Catch All Routes
 
 *Catch all routes* menangkap semua segmen URL setelah rute tertentu, terlepas dari jumlah segmen tersebut. Untuk membuat *catch all route*, gunakan tanda `[...slug]` pada nama file di dalam folder `pages`. 
 
-#### Contoh Struktur Folder
+### Contoh Struktur Folder
 
 Misalnya, kita memiliki struktur folder berikut di dalam folder `pages`:
 
@@ -112,7 +112,7 @@ Dengan struktur ini, Next.js akan menangkap semua URL yang dimulai dengan `/blog
 
 Semua URL tersebut akan diarahkan ke file `[...slug].jsx`.
 
-#### Contoh Implementasi
+### Contoh Implementasi
 
 Di dalam file `[...slug].jsx`, kita bisa mengakses parameter `slug` sebagai array, di mana setiap elemen array adalah segmen dari URL tersebut. Berikut adalah contoh kode untuk menangkap parameter `slug`:
 
@@ -136,11 +136,11 @@ export default BlogPost;
 
 Jika URL yang diakses adalah `/blog/one/two`, maka output `slug` akan berupa `Slug: one/two`. Tetapi jika URL yang diakses adalah `/blog`, maka output `slug` berupa `Slug: No Slug`.
 
-### 2. Optional Catch All Routes
+## 2. Optional Catch All Routes
 
 *Optional catch all routes* mirip dengan *catch all routes*, tetapi lebih fleksibel karena parameter ini bersifat opsional. Kita dapat membuatnya dengan menambahkan tanda `[[...slug?]]`, yang berarti bahwa rute tersebut dapat dipanggil dengan atau tanpa parameter tambahan.
 
-#### Contoh Struktur Folder
+### Contoh Struktur Folder
 
 Misalnya, jika kita ingin menangani URL di bawah `/docs/` baik dengan atau tanpa segmen tambahan, kita bisa membuat file seperti ini:
 
@@ -158,7 +158,7 @@ Dalam hal ini, URL yang ditangani bisa berupa:
 
 Semua URL tersebut akan diarahkan ke file `[[...slug]].jsx`.
 
-#### Contoh Implementasi
+### Contoh Implementasi
 
 Di dalam file `[[...slug]].jsx`, parameter `slug` bisa berupa `undefined` (jika tidak ada segmen tambahan) atau array (jika ada segmen tambahan). Contoh implementasinya:
 
@@ -182,14 +182,14 @@ export default Docs;
 
 Jika URL yang diakses adalah `/docs` (Tidak ada segment tambahan), maka `slug` akan tampil `Home Page`. Jika URL yang diakses adalah `/docs/intro/getting-started`, maka `slug` akan berupa `["intro", "getting-started"]`.
 
-### Kapan Menggunakan Catch All Routes dan Optional Catch All Routes?
+## Kapan Menggunakan Catch All Routes dan Optional Catch All Routes?
 
 - **Catch All Routes (`[...slug]`)** cocok ketika kita ingin menangkap semua segmen yang muncul setelah rute dasar, tetapi selalu mengharapkan adanya parameter tambahan.
 - **Optional Catch All Routes (`[[...slug]]`)** cocok ketika kita ingin menangani baik URL dengan maupun tanpa parameter tambahan.
 
 Dengan cara ini, Kita dapat membuat rute yang fleksibel dan dinamis tanpa harus menentukan setiap rute secara eksplisit di Next.js.
 
-### Navigasi Antar Halaman
+## Navigasi Antar Halaman
 
 Di Next.js, kita dapat melakukan navigasi antar halaman dengan menggunakan komponen `Link` dari modul `next/link`. Komponen ini memungkinkan navigasi sisi-klien (client-side) antara halaman-halaman di aplikasi Next.js. Penggunaan komponen `Link` memberikan pengalaman lebih lancar dan cepat bagi pengguna dibandingkan dengan metode navigasi tradisional yang memuat ulang seluruh halaman.
 
@@ -212,7 +212,7 @@ function HomePage() {
 
 Pada contoh di atas, pengguna akan diarahkan ke halaman `/about` tanpa memuat ulang seluruh halaman saat mengklik tautan.
 
-### Hook `useRouter`
+## Hook `useRouter`
 
 `useRouter` adalah hook yang disediakan oleh Next.js untuk mengakses objek router. Hook ini memungkinkan kita mendapatkan informasi tentang rute saat ini, parameter query, dan berbagai detail terkait rute lainnya. Dengan `useRouter`, kita dapat membuat logika yang bergantung pada lokasi halaman atau parameter yang disediakan dalam URL.
 
@@ -251,7 +251,92 @@ Dengan `useRouter`, kita dapat mengembangkan komponen dinamis yang merespons per
 
 ## Fitur pada route di Next Js (Surya)
 
-## Penggunaan Route Next Js (Surya)
+beberapa fitur ini, bisa digunakan di routing Next.js lo! Berikut fitur-fitur ayng bisa kamu gunakan untuk meningkatkan kemampuan ngoding dalam membuat routing di Next.Js:
+
+- ### **File-Based Routing** 
+
+Next.js menggunakan file-based routing sistem dimana file dengan nama  `page` pada direktori akan digunakan sebagai route url. Ini membantumu untuk mengatur route tanpa erlu konfigurasi yang sulit.
+
+**Contoh penggunaan File-Based Routing**
+```
+└── app
+    ├── profile
+    │   └── page.jsx     // Halaman dari profile, akses di /profile
+    ├── globals.css
+    ├── layout.jsx
+    ├── login
+    │   └── page.jsx     // Halaman dari profile, akses di /profile
+    ├── page.jsx
+```
+File page.jsx yang ada folder profile dan login secara otomatis menjadi rute berdasarkan nama dari direktori dan yang akan ditampilkan di browser saat kamu berusaha mengakses nya.
+- `app/profile/page.jsx` -> `http://localhost::3000/profile`
+- `app/login/page.jsx` -> `http://localhost::3000/login`
+
+- ### **Dynamic Routing** 
+
+Menggunakan dynamic routing memungkinkan kamu menambahkan parameter yang dapat dikustomisasi pada URL, sehingga menciptakan segmen halaman yang dinamis.
+
+**Contoh penggunaan Dynamic Routing**
+```
+└── app
+    ├── blog
+    │   └── [id]
+    │       └── page.jsx
+```
+Folder `[id]` akan menjadi folder dinamis yang akan menangkap parameter dari URL. Untuk bisa menangkap id dari parameter, pada page.jsx kamu bisa menulis berikut:
+
+```javascript
+import { useParams } from 'next/navigation';
+
+const ProductPage = () => {
+  // Mengambil parameter 'id' dari URL
+  const { id } = useParams();
+
+  return (
+    <div>
+      <h1>blog ID: {id}</h1>
+      <p>Ini adalah halaman blog dengan ID {id}</p>
+    </div>
+  );
+};
+
+export default ProductPage;
+```
+Pada source code diatas, kita menggunakan `useParams()` untuk menangkap parameter `id` yang ada di URL. Jika pengguna membuka URL `http://localhost:3000/blog/123`. maka akan merender `123` pada website.
+
+- ### **Nested route**
+
+Untuk membuat route bersarang, kamu bisa membuat direktori didalam direkotri lainnya. Contoh: pada route `/dashboard/settings` dengan membuat direktori didalam direktori `dashboard`. Struktur nya:
+```
+└── app
+    ├── dashboard             // segmen
+    │   └── settings          // segmen daun
+    │       └── page.jsx
+```
+route `/dashboard/settings` terdiri dari 3 segmen:
+- `/` (Root segment)
+- `dashboard` (segmen)
+- `settings` (segmen daun)
+
+- ### **Client-Side navigation**
+
+komponen `link` yang disediakan oleh Next.Js, memungkinkan navigasi sisi klien yang cepat dengan kemampuan prefetching, meningkatkan kinerja dan pengalaman pengguna aplikasi Anda.
+
+- ### **Custom routes**
+
+Anda dapat menentukan rute, alias, dan pengalihan khusus di file `next.config.js`, sehingga Anda dapat membuat URL yang lebih fleksibel dan ramah SEO.
+
+- ### **Built-In Optimization**
+
+Next.js secara otomatis mengoptimalkan perutean dan navigasi, memastikan pemuatan halaman yang cepat dan penggunaan sumber daya yang efisien.
+
+## **Penggunaan Route Next Js**
+- **Situs Statis**: Next.js routing sangat cocok untuk membangun situs statis di mana setiap halaman memiliki file tersendiri. Pendekatan ini membuat pengembangan dan deployment menjadi lebih sederhana.
+- **Blog dan Situs Berbasis Konten**: Dynamic routing dan nested routes memudahkan pembuatan blog dan situs berbasis konten dengan struktur navigasi yang kompleks, seperti kategori dan tag.
+- **Platform E-commerce**: Platform e-commerce bisa memanfaatkan dynamic routes untuk halaman produk, nested routes untuk kategori produk, serta API routes untuk mengelola logika backend seperti autentikasi pengguna dan pemrosesan pembayaran.
+- **Dashboard Pengguna**: Aplikasi dengan dashboard pengguna dapat memanfaatkan nested routing untuk menciptakan navigasi yang intuitif dan terorganisir, seperti pengaturan, profil, dan aktivitas.
+- **Aplikasi Full-Stack**: Dengan Next.js routing dan API routes, pengembang bisa membangun aplikasi full-stack yang mencakup logika frontend dan backend dalam satu proyek, sehingga pengembangan dan deployment lebih mudah.
+- **Single Page Applications (SPAs)**: Dengan navigasi sisi klien dan kemampuan prefetching, Next.js cocok untuk membangun SPA yang membutuhkan perpindahan halaman yang cepat dan mulus.
 
 ## Kesimpulan (Adelfia)
 
